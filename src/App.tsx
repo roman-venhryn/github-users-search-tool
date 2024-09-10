@@ -3,17 +3,20 @@ import Root from './pages/Root/Root';
 import SearchPage from './pages/SearchPage/SearchPage';
 import UserInfoPage from './pages/UserInfoPage/UserInfoPage';
 import { loader as userLoader } from './pages/UserInfoPage/loader';
+import ErrorPage from './pages/Error/Error';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
-        index: true, element: <SearchPage />
+        index: true,
+        element: <SearchPage />
       },
       {
-        path: '/:user',
+        path: '/:username',
         id: 'user-details',
         element: <UserInfoPage />,
         loader: userLoader
@@ -24,10 +27,10 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <>
+    <div className='flex h-screen p-4 place-items-center'>
       <RouterProvider router={router} />
-    </>
+    </div>
   )
 }
 
-export default App
+export default App;

@@ -1,5 +1,6 @@
 import { getUser } from "@/api/axios";
-import { defer, Params } from "react-router-dom";
+import { UserInfoLoaderParams } from "@/types/types";
+import { defer, LoaderFunction } from "react-router-dom";
 
 const fetchUser = async (username: string) => {
   try {
@@ -7,12 +8,13 @@ const fetchUser = async (username: string) => {
     return data;
   } catch (error) {
     console.log(error);
+    return error;
   }
 }
 
-export async function loader({ params }: { params: Params<'user'> }) {
-  const username = params.user;
-  if (username) return defer({
-    user: fetchUser(username)
+export const loader: LoaderFunction = async ({ params }) => {
+  const typedParams = params as unknown as UserInfoLoaderParams;
+  return defer({
+    user: fetchUser(typedParams.username)
   })
 }

@@ -1,4 +1,4 @@
-import { ReactNode } from 'react'
+import { type ReactNode } from 'react'
 import { ScrollArea, ScrollBar } from '../ui/scroll-area'
 
 type UsersListProps = {

@@ -1,4 +1,4 @@
-import { UserSearchItem, UsersSearchResponse } from "@/types/types";
+import { type UserSearchItem, type UsersSearchResponse } from "@/types/types";
 import axios from "axios";
 
 export const api = axios.create({
@@ -7,7 +7,7 @@ export const api = axios.create({
 });
 
 export const getUsers = async (options: object = {}) => {
-  const response = await api.get<UsersSearchResponse>(`/search/users`, options);
+  const response = await api.get<UsersSearchResponse>(`/search/userss`, options);
 
   return response.data;
 }

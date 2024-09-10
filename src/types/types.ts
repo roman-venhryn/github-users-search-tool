@@ -32,3 +32,7 @@ export interface UserSearchItem {
     following: number;
   }
 }
+
+export interface UserInfoLoaderParams {
+  username: string;
+}

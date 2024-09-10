@@ -1,8 +1,9 @@
+import Loading from "@/components/Loading/Loading";
 import SearchForm from "@/components/SearchForm/SearchForm";
 import UsersList from "@/components/UsersList/UsersList";
 import UsersListItem from "@/components/UsersListItem/UsersListItem";
 import { useInfiniteUsers } from "@/hooks/useInfiniteUsers";
-import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
+import { type ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 const SearchPage = () => {
@@ -14,7 +15,7 @@ const SearchPage = () => {
   useEffect(() => {
     const queryFromUrl = searchParams.get('q');
     if (queryFromUrl) setQuery(queryFromUrl);
-  }, []);
+  }, [searchParams]);
 
 
   //retrieving data from custom hook
@@ -37,14 +38,14 @@ const SearchPage = () => {
   let usersContent: ReactNode;
 
   if (isLoading) {
-    usersContent = <p className="text-center">Loading...</p>;
+    usersContent = <Loading />;
   } else if (!users.length && !isError) {
     usersContent = <p className="text-center">Type username and press "Search" to fetch users...</p>
   }
 
 
   return (
-    <div className="container mx-auto border rounded-lg shadow-sm max-w-[520px] bg-card text-card-foreground flex flex-col gap-6 p-6">
+    <div className="flex flex-col gap-6 p-6">
 
       <h1 className="text-2xl font-semibold leading-none tracking-tight text-center">Github users search tool</h1>
 

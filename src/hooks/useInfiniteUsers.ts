@@ -1,5 +1,5 @@
 import { getUsers } from "@/api/axios";
-import { UsersSearchItem } from "@/types/types";
+import { type UsersSearchItem } from "@/types/types";
 import { useEffect, useState } from "react";
 
 const RESULTS_PER_PAGE = 10;
