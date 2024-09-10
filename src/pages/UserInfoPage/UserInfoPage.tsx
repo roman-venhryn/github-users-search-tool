@@ -40,23 +40,23 @@ const UserInfoPage = () => {
               </Button>
             </p>
             {noDetails ? null : (
-              <div className="flex flex-col w-2/3 gap-2 p-4 mx-auto bg-card text-card-foreground">
+              <ul className="flex flex-col gap-2 p-6 bg-card text-card-foreground">
                 {company ? (
-                  <div className="flex gap-2">
+                  <li className="flex justify-center gap-2">
                     <BuildingIcon /><a href={`https://github.com/${company.slice(1)}`} target={"_blank"} className="text-sm font-medium hover:underline underline-offset-4">{company}</a>
-                  </div>
+                  </li>
                 ) : null}
                 {email ? (
-                  <div className="flex gap-2">
+                  <li className="flex justify-center gap-2">
                     <EnvelopeIcon /><a className="text-sm font-medium hover:underline underline-offset-4" href={`mailto:${email}`}>{email}</a>
-                  </div>
+                  </li>
                 ) : null}
                 {blog ? (
-                  <div className="flex gap-2">
+                  <li className="flex justify-center gap-2">
                     <LinkIcon /><a href={blog} target={"_blank"} className="text-sm font-medium hover:underline underline-offset-4">{blog}</a>
-                  </div>
+                  </li>
                 ) : null}
-              </div>
+              </ul>
             )}
           </div>
         }}
