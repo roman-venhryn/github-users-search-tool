@@ -3,13 +3,13 @@ import Root from './pages/Root/Root';
 import SearchPage from './pages/SearchPage/SearchPage';
 import UserInfoPage from './pages/UserInfoPage/UserInfoPage';
 import { loader as userLoader } from './pages/UserInfoPage/loader';
-import ErrorPage from './pages/Error/Error';
+import Error from './components/Error/Error';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <Root />,
-    errorElement: <ErrorPage />,
+    errorElement: <Error />,
     children: [
       {
         index: true,

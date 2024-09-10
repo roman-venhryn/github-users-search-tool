@@ -40,7 +40,7 @@ export const useInfiniteUsers = (query: string, pageNumber: number = 1) => {
       setIsLoading(false);
       if (signal.aborted) return;
       setIsError(true);
-      console.log(error);
+      console.error(error);
     })
 
     return () => controller.abort();

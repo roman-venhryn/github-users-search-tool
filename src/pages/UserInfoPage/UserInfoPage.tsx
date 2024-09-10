@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Suspense } from "react";
 import { Await, useNavigate, useRouteLoaderData } from "react-router-dom"
 import { type UserSearchItem } from "@/types/types";
+import Error from "../../components/Error/Error";
 
 const UserInfoPage = () => {
   const { user } = useRouteLoaderData('user-details') as UserSearchItem;
@@ -14,7 +15,7 @@ const UserInfoPage = () => {
 
   return (
     <Suspense fallback={<Loading />}>
-      <Await resolve={user} errorElement={<p className="text-center">Could not load user data!</p>}>
+      <Await resolve={user} errorElement={<Error />}>
         {(loadedUser) => {
           const { avatar_url, name, login, followers, following, company, email, blog } = loadedUser;
 
