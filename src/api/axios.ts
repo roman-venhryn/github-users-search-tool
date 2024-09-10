@@ -7,7 +7,7 @@ export const api = axios.create({
 });
 
 export const getUsers = async (options: object = {}) => {
-  const response = await api.get<UsersSearchResponse>(`/search/userss`, options);
+  const response = await api.get<UsersSearchResponse>(`/search/users`, options);
   return response.data;
 }
 
