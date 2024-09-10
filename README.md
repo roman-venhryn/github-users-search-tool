@@ -22,7 +22,7 @@ Built with:
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`VITE_ACCESS_TOKEN` - Github Access Token
+`VITE_GITHUB_ACCESS_TOKEN` - Github Access Token
 
 ## Installation
 

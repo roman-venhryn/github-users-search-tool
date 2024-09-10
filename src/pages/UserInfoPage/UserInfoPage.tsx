@@ -44,7 +44,7 @@ const UserInfoPage = () => {
               <ul className="flex flex-col gap-2 p-6 bg-card text-card-foreground">
                 {company ? (
                   <li className="flex justify-center gap-2">
-                    <BuildingIcon /><a href={`https://github.com/${company.slice(1)}`} target={"_blank"} className="text-sm font-medium hover:underline underline-offset-4">{company}</a>
+                    <BuildingIcon /><p className="text-sm font-medium">{company}</p>
                   </li>
                 ) : null}
                 {email ? (
