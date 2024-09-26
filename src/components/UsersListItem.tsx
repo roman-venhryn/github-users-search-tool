@@ -1,9 +1,9 @@
-import { type UsersSearchItem } from '@/types/types'
+import { type UsersSearchResult } from '@/types/types'
 import { Link } from 'react-router-dom';
-import { Button } from '../ui/button';
+import { Button } from '@/components/ui/Button';
 
 type UsersListItemProps = {
-  user: UsersSearchItem;
+  user: UsersSearchResult;
 }
 
 const UsersListItem = ({ user }: UsersListItemProps) => {

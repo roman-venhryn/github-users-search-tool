@@ -1,11 +1,14 @@
 import { getUsers } from "@/api/axios";
-import { type UsersSearchItem } from "@/types/types";
+import { type UsersSearchResult } from "@/types/types";
 import { useEffect, useState } from "react";
 
 const RESULTS_PER_PAGE = 10;
 
-export const useInfiniteUsers = (query: string, pageNumber: number = 1) => {
-  const [users, setUsers] = useState<UsersSearchItem[] | []>([]);
+export const useInfiniteUsers = () => {
+  const [query, setQuery] = useState<string>('');
+  const [page, setPage] = useState<number>(1);
+
+  const [users, setUsers] = useState<UsersSearchResult[] | []>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
   const [hasMorePages, setHasMorePages] = useState<boolean>(true);
@@ -28,7 +31,7 @@ export const useInfiniteUsers = (query: string, pageNumber: number = 1) => {
     getUsers({
       params: {
         q: query,
-        page: pageNumber,
+        page,
         per_page: RESULTS_PER_PAGE
       },
       signal
@@ -45,8 +48,8 @@ export const useInfiniteUsers = (query: string, pageNumber: number = 1) => {
 
     return () => controller.abort();
 
-  }, [pageNumber, query]);
+  }, [page, query]);
 
 
-  return { users, isLoading, isError, hasMorePages }
+  return { setQuery, setPage, users, isLoading, isError, hasMorePages }
 }

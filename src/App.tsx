@@ -1,9 +1,8 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Root from './pages/Root/Root';
-import SearchPage from './pages/SearchPage/SearchPage';
-import UserInfoPage from './pages/UserInfoPage/UserInfoPage';
-import { loader as userLoader } from './pages/UserInfoPage/loader';
-import Error from './components/Error/Error';
+import Root from '@/pages/Root';
+import SearchPage from '@/pages/SearchPage';
+import Error from '@/components/Error';
+import ProfilePage from '@/pages/ProfilePage';
 
 const router = createBrowserRouter([
   {
@@ -18,8 +17,7 @@ const router = createBrowserRouter([
       {
         path: '/:username',
         id: 'user-details',
-        element: <UserInfoPage />,
-        loader: userLoader
+        element: <ProfilePage />,
       }
     ]
   }
@@ -27,7 +25,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className='flex h-screen p-4 place-items-center'>
+    <div className='flex min-h-screen p-4 place-items-center'>
       <RouterProvider router={router} />
     </div>
   )
